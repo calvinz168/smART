@@ -17,4 +17,5 @@ body {
     height: auto;
     border: radius 0px;
     display: inline-block;
+    float: left;
 }

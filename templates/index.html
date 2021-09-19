@@ -14,6 +14,9 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <!-- flask overwrites this when it loads it with the actual css file-->
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!--favicon-->
     
 </head>    
 
@@ -28,12 +31,33 @@
         </nav>
    
     <div class="d-none d-lg-flex">
-        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="80%" style="border: radius 0px;">
+        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="80%">
     </div>
    
-    <div class="container suggestion">
-        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;>
-        <img src="https://en.wikipedia.org/wiki/Mona_Lisa#/media/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;>
+    <div class="container suggestion row-fluid pull-left">
+        <!-- flask will also overwrite these parts so please don't put the properties in the html-->
+        <!-- use the css file-->
+        <!-- just leave the class and move everything else-->
+        <div >
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+        </div>
+        <div >
+        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+        </div>
+        <div >
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+            </div>
+        <!--change it back then-->
+        <!--change it back then-->
+        <!--oh god what did you do-->
+        <!--whys the images stacking vertically now-->
+        <!--they were for me ee -->
+        <!-- im not convinced its actually hos-->
+        <!-- I see no change -->
+        <!--uuh i think the code is shared but the website isn't-->
+        <!-- is there any way you can make another terminal-->
     </div>
 
 </body>
