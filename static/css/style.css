@@ -12,10 +12,13 @@ body {
     margin-top: 5em; 
 }
 
+.picture {
+    width: 80%
+}
+
 .suggestion {
     width:100px; 
     height: auto;
     border: radius 0px;
     display: inline-block;
-    float: left;
 }
