@@ -11,26 +11,48 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Proxima+Nova" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <!-- flask overwrites this when it loads it with the actual css file-->
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <!--favicon-->
+    
 </head>    
 
 <body>
-   <h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white px-5">
        <div class="container">
         <form method=post enctype=multipart/form-data>
             <input type=file name=file>
             <input type=submit value=Upload>
          </form>
-   </h1>
-   <div class="container">
+         </div>
+        </nav>
+   
     <div class="d-none d-lg-flex">
-        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="80%" style="border: radius 0px;">
+        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="80%">
     </div>
    
-    <div>
-    <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;">
-   </div>
-</div>
+    <div class="container suggestion row-fluid pull-left">
+
+        <div >
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left" width="15%">
+        </div>
+        <div >
+        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+        </div>
+        <div >
+            <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="pull-left">
+            </div>
+
+    </div>
+
 </body>
 </html>
