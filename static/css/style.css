@@ -11,3 +11,10 @@ body {
     background-color: #F0F6F7;
     margin-top: 5em; 
 }
+
+.suggestion {
+    width:100px; 
+    height: auto;
+    border: radius 0px;
+    display: inline-block;
+}
