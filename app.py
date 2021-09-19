@@ -118,13 +118,14 @@ def load_image_data(id):
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     print(len(os.listdir("static/dataset")))
-    rand = random.randint(0, len(os.listdir("static/dataset"))-1)
+    rand = random.randint(0, len(os.listdir(""))-1)
     startImage = f"/dataset/{os.listdir('static/dataset')[rand]}"
     print("startImage",startImage)
     artistVals = predictArtist(startImage,data,images)
     print("artistVals",artistVals)
     artistDatas = load_image_data(artistVals[0]),load_image_data(artistVals[1]),load_image_data(artistVals[2])
     # fix predictArt
+    print("ASDASDASD")
     return render_template('index.html', currentImage=f"{startImage}", predictions = predictArt(startImage,data,images), artistData = artistDatas)
 
 

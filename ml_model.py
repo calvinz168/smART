@@ -114,9 +114,9 @@ def predictArt(qImg,data,images):
         similar_image_indices = indices.reshape(-1)
 
         print(similar_image_indices)
-        print(data[similar_image_indices[0]], images[similar_image_indices[0]])
-        print(data[similar_image_indices[1]], images[similar_image_indices[1]])
-        print(data[similar_image_indices[2]], images[similar_image_indices[2]])
+        print(data[similar_image_indices[0]], ",",images[similar_image_indices[0]], ",", data[similar_image_indices[0]].split("/")[-2:])
+        print(data[similar_image_indices[1]], ",", images[similar_image_indices[1]], ",", data[similar_image_indices[1]].split("/")[-2:])
+        print(data[similar_image_indices[2]], ",", images[similar_image_indices[2]], ",", data[similar_image_indices[2]].split("/")[-2:])
     return data[similar_image_indices[0]], data[similar_image_indices[1]], data[similar_image_indices[2]]
 
 def predictArtist(qImg,data,images):
@@ -152,14 +152,14 @@ def predictArtist(qImg,data,images):
         similar_image_indices = indices.reshape(-1)
 
         print(similar_image_indices)
-        print(data[similar_image_indices[0]], images[similar_image_indices[0]])
-        print(data[similar_image_indices[1]], images[similar_image_indices[1]])
-        print(data[similar_image_indices[2]], images[similar_image_indices[2]])
+        print(data[similar_image_indices[0]], ",",images[similar_image_indices[0]], ",", data[similar_image_indices[0]].split("/")[-1])
+        print(data[similar_image_indices[1]], ",", images[similar_image_indices[1]], ",", data[similar_image_indices[1]].split("/")[-1])
+        print(data[similar_image_indices[2]], ",", images[similar_image_indices[2]], ",", data[similar_image_indices[2]].split("/")[-1])
 
     return similar_image_indices[0], similar_image_indices[1], similar_image_indices[2]
     
-# formatData()
+formatData()
 # train()
-# predict("query1.jpg")
+predictArt("query1.jpg",data,images)
 # predict("query2.jpg")
 # predict("query3.jpg")
