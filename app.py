@@ -1,6 +1,7 @@
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import os
+import csv
 
 app = Flask('app')
 app.config['UPLOAD_FOLDER'] = "tmp"
@@ -35,16 +36,28 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             # call tensorflow
-            generate_suggestions(filename)
+            generate_suggestions(app.config['UPLOAD_FOLDER'] + "/" + filename)
 
             # stay on main page
             return redirect(request.referrer)
 
-def generate_suggestions(filename):
-    print("generating suggestions for file:", filename)
+def generate_suggestions(filepath):
+    print("generating suggestions for file:", filepath)
     # modify html here
     # generate suggestions here
+    #load_image_data(id) # get image info
 
+def load_image_data(id):
+    with open('dataset/artists.csv', newline='') as f:
+        reader = csv.reader(f)
+        data = list(reader)
+
+        id = id+1 # skip header
+        x = id * 8 # csv loads it into one list for some reason
+        artist_info = data[0][x:x+7]
+        
+    print(artist_info)
+    #todo: modify html
 
 
 app.run(host='0.0.0.0', port=8080)
