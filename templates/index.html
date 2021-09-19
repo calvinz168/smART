@@ -12,25 +12,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Proxima+Nova" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
 </head>    
 
 <body>
-   <h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white px-5">
        <div class="container">
         <form method=post enctype=multipart/form-data>
             <input type=file name=file>
             <input type=submit value=Upload>
          </form>
-   </h1>
-   <div class="container">
+         </div>
+        </nav>
+   
     <div class="d-none d-lg-flex">
         <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="80%" style="border: radius 0px;">
     </div>
    
-    <div>
-    <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;">
-   </div>
-</div>
+    <div class="container suggestion">
+        <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;>
+        <img src="https://en.wikipedia.org/wiki/Mona_Lisa#/media/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg" alt="Italian Trulli" class="d-block mx-5" width="15%" style="border: radius 0px;>
+    </div>
+
 </body>
 </html>
