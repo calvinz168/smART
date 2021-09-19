@@ -34,7 +34,7 @@ def formatData():
     for a in range(len(folders)):
         for b in (os.listdir(folders[a])):
             images.append(b)
-    print(len(images))
+
 
     listImgFolders = []
     for i in range(len(folders)):
@@ -51,7 +51,6 @@ def formatData():
                 break
             else:
                 imgNum += listImgFolders[b+1]
-
 
 def train():
     # model setup, only need result of feature extraction(after 7x7x512)
@@ -82,13 +81,51 @@ from keras.preprocessing import image
 from keras.applications.vgg16 import VGG16
 from keras.applications.vgg16 import preprocess_input
 
-def predict(qImg):
+def predictArt(qImg,data,images):
     # reverse image search prediction using kNearestNeighbors
 
     model = VGG16(weights='imagenet', include_top=False)
 
     # inputted image
-    query_path = f"C:/Users/calvi/Desktop/smART_data2/query/{qImg}"
+    query_path = f"static/{qImg}"
+
+    # load image
+    img = image.load_img(query_path, target_size=(256, 256))
+    img_data = image.img_to_array(img)
+    img_data = np.expand_dims(img_data, axis=0)
+    img_data = preprocess_input(img_data)
+
+    # parse features of inputted image
+    vgg16_feature = model.predict(img_data)
+    vgg16_feature = np.array(vgg16_feature)
+    query_feature = vgg16_feature.flatten()
+    # load features
+
+    with np.load("C:/Users/calvi/Desktop/smART2/img_vector_features3.npz") as img_vector_features_1:
+        img_vector_features = img_vector_features_1["arr_0"]
+
+        # find similar images
+        N_QUERY_RESULT = 3
+        nbrs = NearestNeighbors(n_neighbors=N_QUERY_RESULT,
+                                metric="cosine").fit(img_vector_features)
+
+        # formatting
+        distances, indices = nbrs.kneighbors([query_feature])
+        similar_image_indices = indices.reshape(-1)
+
+        print(similar_image_indices)
+        print(data[similar_image_indices[0]], images[similar_image_indices[0]])
+        print(data[similar_image_indices[1]], images[similar_image_indices[1]])
+        print(data[similar_image_indices[2]], images[similar_image_indices[2]])
+    return data[similar_image_indices[0]], data[similar_image_indices[1]], data[similar_image_indices[2]]
+
+def predictArtist(qImg,data,images):
+# reverse image search prediction using kNearestNeighbors
+
+    model = VGG16(weights='imagenet', include_top=False)
+
+    # inputted image
+    query_path = f"static/{qImg}"
 
     # load image
     img = image.load_img(query_path, target_size=(256, 256))
@@ -119,8 +156,10 @@ def predict(qImg):
         print(data[similar_image_indices[1]], images[similar_image_indices[1]])
         print(data[similar_image_indices[2]], images[similar_image_indices[2]])
 
-formatData()
-train()
-predict("query1.jpg")
-predict("query2.jpg")
-predict("query3.jpg")
+    return similar_image_indices[0], similar_image_indices[1], similar_image_indices[2]
+    
+# formatData()
+# train()
+# predict("query1.jpg")
+# predict("query2.jpg")
+# predict("query3.jpg")
