@@ -8,13 +8,12 @@ app.config['UPLOAD_FOLDER'] = "tmp"
 app.config['SECRET_KEY'] = 'my super secret key'.encode('utf8')
 
 @app.route('/')
-def hello_world():
+def on_load():
+    generate_suggestions("dataset/pfp.jpg")
     return render_template('index.html')
 
-@app.route('/run_model')
-def run_model():
-    return render_template('index.html')
-    
+
+# method that handles image_load    
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -31,9 +30,21 @@ def upload_file():
         if file:
             # INSERT LINK TO TENSORFLOW HERE
             filename = secure_filename(file.filename)
+
+            # not sure if image needs to be saved or not
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-    return
+
+            # call tensorflow
+            generate_suggestions(filename)
+
+            # stay on main page
+            return redirect(request.referrer)
+
+def generate_suggestions(filename):
+    print("generating suggestions for file:", filename)
+    # modify html here
+    # generate suggestions here
+
+
 
 app.run(host='0.0.0.0', port=8080)
