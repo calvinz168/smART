@@ -163,3 +163,4 @@ def predictArtist(qImg,data,images):
 # predict("query1.jpg")
 # predict("query2.jpg")
 # predict("query3.jpg")
+#
