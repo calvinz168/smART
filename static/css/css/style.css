@@ -22,3 +22,7 @@ body {
     border: radius 0px;
     display: inline-block;
 }
+
+.img {
+    border: 50px solid rgb(165, 166, 167);
+  }
