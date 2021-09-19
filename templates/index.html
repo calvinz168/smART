@@ -17,14 +17,34 @@
 
 </head>
 <body>
-   <h1>
-        <form method=post enctype=multipart/form-data>
-            <input type=file name=file>
-            <input type=submit value=Upload>
-         </form>
-   </h1>
-   <img src="{{ url_for('static', filename=currentImage) }}">
 
-   <h1>{{ artistData[0] }} </h1>
+   <div class="d-lg-flex d-block py-4">
+    
+    <div class="containercontainer-fluid">
+        <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></div>
+    <br>
+    <div class="container-fluid">
+        <button type="button" class="btn btn-light btn-lg"><label for="file" style="cursor: pointer;"><strong>Upload Image</strong></label></button>
+        
+    </div>
+    </div>
+
+
+   <div class="py-5">
+    <img id="output" width="60%">
+    </div>
+
+    <script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+    </script>
+    </div>
+    <h1>{{ artistData[0] }} </h1>
+
+   <div class="container">    
+   <img scr="../static/dataset/Vincent_van_Gogh_3.jpg">
+   </div>
 </body>
 </html>
