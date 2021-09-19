@@ -35,16 +35,21 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             # call tensorflow
-            generate_suggestions(filename)
+            generate_suggestions(app.config['UPLOAD_FOLDER'] + "/" + filename)
 
             # stay on main page
             return redirect(request.referrer)
 
-def generate_suggestions(filename):
-    print("generating suggestions for file:", filename)
+def generate_suggestions(filepath):
+    print("generating suggestions for file:", filepath)
     # modify html here
     # generate suggestions here
+    load_image_data(filepath) # get image info
 
+def load_image_data(filepath):
+    
+    pass
+    #todo: modify html
 
 
 app.run(host='0.0.0.0', port=8080)
