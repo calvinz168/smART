@@ -12,10 +12,11 @@
             <input type=submit value=Upload>
          </form>
    </h1>
-   <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli">
+   <img src="{{ url_for('static', filename=currentImage) }}">
+   <!-- <img src="{{ url_for('static', filename=predictions[0]) }}">
+   <img src="{{ url_for('static', filename=predictions[1]) }}">
+   <img src="{{ url_for('static', filename=predictions[2]) }}"> -->
 
-   <div>
-       <img src="https://www.w3schools.com/html/pic_trulli.jpg" alt="Italian Trulli">
-   </div>
+   <h1>{{ artistData[0] }} </h1>
 </body>
 </html>
